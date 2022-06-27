@@ -13,7 +13,7 @@ var img = document.createElement("img");
 function selectLang() {
   xmlRequest = new XMLHttpRequest();
 
-  xmlRequest.open("GET", "http://ddragon.leagueoflegends.com/cdn/12.11.1/data/" + localStorage["lang"] + "/champion.json", false);
+  xmlRequest.open("GET", "https://ddragon.leagueoflegends.com/cdn/12.11.1/data/" + localStorage["lang"] + "/champion.json", false);
   xmlRequest.send(null);
   xmlRequest = xmlRequest.responseText;
   xmlRequest = JSON.parse(xmlRequest);
@@ -53,7 +53,7 @@ randomize.addEventListener("click", () => {
     championName.innerHTML = xmlRequest.data[champions[currentChamp]].name;
     championTitle.innerHTML = xmlRequest.data[champions[currentChamp]].title;
 
-    img.src = "http://ddragon.leagueoflegends.com/cdn/img/champion/loading/" + champions[currentChamp] + "_0.jpg";
+    img.src = "https://ddragon.leagueoflegends.com/cdn/img/champion/loading/" + champions[currentChamp] + "_0.jpg";
     championImg.append(img);
   }
 });
