@@ -17,6 +17,9 @@ function selectLang() {
   xmlRequest.send(null);
   xmlRequest = xmlRequest.responseText;
   xmlRequest = JSON.parse(xmlRequest);
+
+  try { championName.innerHTML = xmlRequest.data[champions[currentChamp]].name; } catch(e) { console.log(""); }
+  try { championTitle.innerHTML = xmlRequest.data[champions[currentChamp]].title; } catch(e) { console.log(""); }
 }
 
 if (localStorage["lang"] == undefined) { localStorage["lang"] = "fr_FR"; }
@@ -29,34 +32,30 @@ champions = Object.keys(xmlRequest.data);
 
 version.innerHTML += xmlRequest.version;
 
-var currentSkin = 0; // A mettre dans l'event et à changer en random
-
 // Switch language event
 
 flagFr.addEventListener("click", () => {
-  if (localStorage["lang"] != "fr_FR") {
-    localStorage["lang"] = "fr_FR";
-    selectLang();
-  }
+  localStorage["lang"] = "fr_FR";
+  selectLang();
 });
 
 flagEn.addEventListener("click", () => {
-  if (localStorage["lang"] != "en_US") {
-    localStorage["lang"] = "en_US";
-    selectLang();
-  }
+  localStorage["lang"] = "en_US";
+  selectLang();
 })
 
 // Randomize champion generator
 
 randomize.addEventListener("click", () => {
-  for (let i = 0; i <= 35; i++) {
+  for (let i = 0; i < 35; i++) {
     var currentChamp = Math.floor(Math.random() * 159.9);
+
+    console.log(currentChamp);
 
     championName.innerHTML = xmlRequest.data[champions[currentChamp]].name;
     championTitle.innerHTML = xmlRequest.data[champions[currentChamp]].title;
 
-    img.src = "http://ddragon.leagueoflegends.com/cdn/img/champion/loading/" + champions[currentChamp] + "_" + currentSkin + ".jpg";
+    img.src = "http://ddragon.leagueoflegends.com/cdn/img/champion/loading/" + champions[currentChamp] + "_0.jpg";
     championImg.append(img);
   }
 });
