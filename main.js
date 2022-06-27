@@ -18,8 +18,8 @@ function selectLang() {
   xmlRequest = xmlRequest.responseText;
   xmlRequest = JSON.parse(xmlRequest);
 
-  try { championName.innerHTML = xmlRequest.data[champions[currentChamp]].name; } catch(e) { console.log(""); }
-  try { championTitle.innerHTML = xmlRequest.data[champions[currentChamp]].title; } catch(e) { console.log(""); }
+  try { championName.innerHTML = xmlRequest.data[champions[currentChamp]].name; } catch(e) { console.log(e); }
+  try { championTitle.innerHTML = xmlRequest.data[champions[currentChamp]].title; } catch(e) { console.log(e); }
 }
 
 if (localStorage["lang"] == undefined) { localStorage["lang"] = "fr_FR"; }
@@ -48,9 +48,7 @@ flagEn.addEventListener("click", () => {
 
 randomize.addEventListener("click", () => {
   for (let i = 0; i < 35; i++) {
-    var currentChamp = Math.floor(Math.random() * 159.9);
-
-    console.log(currentChamp);
+    currentChamp = Math.floor(Math.random() * 159.9);
 
     championName.innerHTML = xmlRequest.data[champions[currentChamp]].name;
     championTitle.innerHTML = xmlRequest.data[champions[currentChamp]].title;
