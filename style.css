@@ -1,0 +1,75 @@
+/* PALETTE
+
+- #333333
+- #48E5C2
+- #FCFAF9
+- #F3D3BD
+- #5E5E5E
+
+*/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+	background-color: #333;
+	text-align: center;
+}
+
+header {
+	text-align: center;
+}
+
+button:hover {
+	cursor: pointer;
+}
+
+p {
+	color: #FCFAF9;
+}
+
+h1 {
+	color: #FCFAF9;
+}
+
+h2 {
+	color: #FCFAF9;
+}
+
+h3 {
+	color: #FCFAF9;
+}
+
+#fr-flag:hover {
+	cursor: pointer;
+}
+
+#en-flag:hover {
+	cursor: pointer;
+}
+
+#switch-language {
+	position: absolute;
+	top: 40px;
+	right: 50px;
+}
+
+#champion {
+	width: 308px;
+	height: 560px;
+	position: relative;
+	left: 1100px;
+}
+
+#randomize {
+	background-color: #48E5C2;
+	font-family: Spiegel;
+	font-size: 13px;
+}
+
+#randomize:hover {
+	cursor: pointer;
+}
